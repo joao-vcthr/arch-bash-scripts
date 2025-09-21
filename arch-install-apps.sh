@@ -14,6 +14,7 @@ install_pacman_packages() {
     local pacman_packages=(
         "firefox"
         "chromium"
+        "gimp"
         "vlc"
         "btop"
         "fastfetch"
@@ -31,9 +32,9 @@ install_flatpak_packages() {
         "org.telegram.desktop"
         "com.github.flxzt.rnote"
         "md.obsidian.Obsidian"
-        "org.gimp.GIMP"
         "org.shotcut.Shotcut"
         "com.obsproject.Studio"
+        "org.libreoffice.LibreOffice"
     )
 
     echo -e "${YELLOW}Installing flatpak packages...${NC}"
