@@ -11,10 +11,13 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No color
 
 install_pacman_packages() {
+
     local pacman_packages=(
         "firefox"
         "chromium"
+        "obs-studio"
         "gimp"
+        "shotcut"
         "vlc"
         "btop"
         "fastfetch"
@@ -28,13 +31,11 @@ install_pacman_packages() {
 }
 
 install_flatpak_packages() {
+
     local flatpak_packages=(
         "org.telegram.desktop"
         "com.github.flxzt.rnote"
         "md.obsidian.Obsidian"
-        "org.shotcut.Shotcut"
-        "com.obsproject.Studio"
-        "org.libreoffice.LibreOffice"
     )
 
     echo -e "${YELLOW}Installing flatpak packages...${NC}"
