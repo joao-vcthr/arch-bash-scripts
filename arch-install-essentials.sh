@@ -20,7 +20,6 @@ install_firewall() {
     ufw enable
 
     echo -e "${GREEN}Firewall installed and configured! ${NC}"
-
 }
 
 install_essential_packages() {
@@ -63,7 +62,6 @@ install_compilers() {
     echo -e "${YELLOW}Installing Compilers... ${NC}"
 
     pacman -S clang jdk-openjdk
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
     echo -e "${GREEN}Compilers installed! ${NC}"
 }
