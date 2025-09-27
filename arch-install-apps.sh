@@ -16,7 +16,6 @@ install_pacman_packages() {
         "firefox"
         "chromium"
         "obs-studio"
-        "flameshot"
         "gimp"
         "shotcut"
         "audacity"
