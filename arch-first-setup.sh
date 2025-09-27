@@ -46,13 +46,13 @@ setup_trim() {
 main() {
     echo -e "${YELLOW}Running functions... ${NC}"
 
-    setup_clock
-    setup_connection
-    setup_trim
-
     # Update system
     echo -e "${YELLOW}Updating System... ${NC}"
     pacman -Syu --noconfirm
+
+    setup_clock
+    setup_connection
+    setup_trim
 
     echo -e "${GREEN}Done! Restarting the system! ${NC}"
 

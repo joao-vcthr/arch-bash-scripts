@@ -39,6 +39,7 @@ install_flatpak_packages() {
         "org.telegram.desktop"
         "com.github.flxzt.rnote"
         "md.obsidian.Obsidian"
+        "be.alexandervanhee.gradia"
     )
 
     echo -e "${YELLOW}Installing flatpak packages...${NC}"
