@@ -101,4 +101,5 @@ main() {
     echo -e "${GREEN}Essential packages installed! Restart the system ${NC}"
 }
 
+
 main

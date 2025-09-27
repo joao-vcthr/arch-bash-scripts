@@ -66,4 +66,5 @@ main() {
     echo -e "${GREEN}Apps are installed!${NC}"
 }
 
+
 main
