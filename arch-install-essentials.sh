@@ -12,12 +12,13 @@ NC='\033[0m' # No color
 
 install_firewall() {
     echo -e "${YELLOW}Installing Firewall... ${NC}"
-    pacman -S ufw
+    sudo pacman -S ufw
 
     echo -e "${YELLOW}Setting up Firewall... ${NC}"
-    ufw default deny incoming
-    ufw default allow outgoing
-    ufw enable
+
+    sudo ufw default deny incoming
+    sudo ufw default allow outgoing
+    sudo ufw enable
 
     echo -e "${GREEN}Firewall installed and configured! ${NC}"
 }
@@ -30,9 +31,10 @@ install_essential_packages() {
         "gst-libav"
         "power-profiles-daemon"
     )
+
     echo -e "${YELLOW}Installing essential packages... ${NC}"
 
-    pacman -S --noconfirm --needed "${essential_packages[@]}"
+    sudo pacman -S --noconfirm --needed "${essential_packages[@]}"
 
     echo -e "${GREEN}Essential packages installed! ${NC}"
 }
@@ -66,7 +68,7 @@ install_repositories() {
 install_compilers() {
     echo -e "${YELLOW}Installing Compilers... ${NC}"
 
-    pacman -S --noconfirm --needed clang jdk-openjdk
+    sudo pacman -S --noconfirm --needed clang jdk-openjdk
 
     echo -e "${GREEN}Compilers installed! ${NC}"
 }
