@@ -23,8 +23,6 @@ install_firewall() {
 }
 
 install_essential_packages() {
-    echo -e "${YELLOW}Installing essential packages... ${NC}"
-
     local essential_packages=(
         "gst-plugins-good"
         "gst-plugins-bad"
@@ -32,6 +30,7 @@ install_essential_packages() {
         "gst-libav"
         "power-profiles-daemon"
     )
+    echo -e "${YELLOW}Installing essential packages... ${NC}"
 
     pacman -S --noconfirm --needed "${essential_packages[@]}"
 
@@ -39,21 +38,27 @@ install_essential_packages() {
 }
 
 install_repositories() {
-    #Install Flatpak
+    # Install Flatpak
     echo -e "${YELLOW}Installing Flapak... ${NC}"
 
-    pacman -S flatpak
-	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    sudo pacman -S --noconfirm --needed flatpak
+	sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 	echo -e "${GREEN}Flatpak installed and flathub repo added! ${NC}"
 
-    #Install Yay
+    # Install Yay
 	echo -e "${YELLOW}Installing Yay... ${NC}"
 
-	pacman -S --needed git base-devel
+
+	sudo pacman -S --noconfirm --needed git base-devel
+    cd "$HOME"
+
  	git clone https://aur.archlinux.org/yay.git
  	cd yay
- 	makepkg -si
+ 	makepkg -si --noconfirm
+
+    cd ..
+    rm -rf yay
 
     echo -e "${GREEN}Yay installed! ${NC}"
 }
@@ -61,9 +66,26 @@ install_repositories() {
 install_compilers() {
     echo -e "${YELLOW}Installing Compilers... ${NC}"
 
-    pacman -S clang jdk-openjdk
+    pacman -S --noconfirm --needed clang jdk-openjdk
 
     echo -e "${GREEN}Compilers installed! ${NC}"
+}
+
+install_fonts() {
+    local fonts=(
+        "noto-fonts"
+        "ttf-liberation"
+        "ttf-dejavu"
+        "noto-fonts-emoji"
+        "ttf-fira-code"
+        "ttf-jetbrains-mono"
+    )
+
+    echo -e "${YELLOW}Installing Fonts... ${NC}"
+
+    pacman -S --noconfirm --needed "${fonts[@]}"
+
+    echo -e "${GREEN}Fonts installed! ${NC}"
 }
 
 main() {
@@ -72,6 +94,9 @@ main() {
     install_firewall
     install_essential_packages
     install_compilers
+    install_fonts
 
-    echo -e "${GREEN}Essential packages installed! Restarting the system ${NC}"
+    echo -e "${GREEN}Essential packages installed! Restart the system ${NC}"
 }
+
+main
