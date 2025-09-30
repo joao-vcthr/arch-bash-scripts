@@ -81,6 +81,7 @@ install_fonts() {
         "noto-fonts-emoji"
         "ttf-fira-code"
         "ttf-jetbrains-mono"
+        "noto-fonts-cjk"
     )
 
     echo -e "${YELLOW}Installing Fonts... ${NC}"
